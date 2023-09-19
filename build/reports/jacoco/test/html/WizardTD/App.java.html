@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">INFO1113_Assignment1</a> &gt; <a href="index.source.html" class="el_package">WizardTD</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package WizardTD;
+
+import processing.core.PApplet;
+import processing.core.PImage;
+import processing.data.JSONArray;
+import processing.data.JSONObject;
+import processing.event.MouseEvent;
+
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
+
+import java.io.*;
+import java.util.*;
+
+public class App extends PApplet {
+
+    public static final int CELLSIZE = 32;
+    public static final int SIDEBAR = 120;
+    public static final int TOPBAR = 40;
+    public static final int BOARD_WIDTH = 20;
+
+<span class="nc" id="L23">    public static int WIDTH = CELLSIZE*BOARD_WIDTH+SIDEBAR;</span>
+<span class="nc" id="L24">    public static int HEIGHT = BOARD_WIDTH*CELLSIZE+TOPBAR;</span>
+
+    public static final int FPS = 60;
+
+    public String configPath;
+
+<span class="nc" id="L30">    public Random random = new Random();</span>
+	
+	// Feel free to add any additional methods or attributes you want. Please put classes in different files.
+
+<span class="nc" id="L34">    public App() {</span>
+<span class="nc" id="L35">        this.configPath = &quot;config.json&quot;;</span>
+<span class="nc" id="L36">    }</span>
+
+    /**
+     * Initialise the setting of the window size.
+     */
+	@Override
+    public void settings() {
+<span class="nc" id="L43">        size(WIDTH, HEIGHT);</span>
+<span class="nc" id="L44">    }</span>
+
+    /**
+     * Load all resources such as images. Initialise the elements such as the player, enemies and map elements.
+     */
+	@Override
+    public void setup() {
+<span class="nc" id="L51">        frameRate(FPS);</span>
+
+        // Load images during setup
+		// Eg:
+        // loadImage(&quot;src/main/resources/WizardTD/tower0.png&quot;);
+        // loadImage(&quot;src/main/resources/WizardTD/tower1.png&quot;);
+        // loadImage(&quot;src/main/resources/WizardTD/tower2.png&quot;);
+
+<span class="nc" id="L59">    }</span>
+
+    /**
+     * Receive key pressed signal from the keyboard.
+     */
+	@Override
+    public void keyPressed(){
+        
+<span class="nc" id="L67">    }</span>
+
+    /**
+     * Receive key released signal from the keyboard.
+     */
+	@Override
+    public void keyReleased(){
+
+<span class="nc" id="L75">    }</span>
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+<span class="nc" id="L80">    }</span>
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+<span class="nc" id="L85">    }</span>
+
+    /*@Override
+    public void mouseDragged(MouseEvent e) {
+
+    }*/
+
+    /**
+     * Draw all elements in the game by current frame.
+     */
+	@Override
+    public void draw() { // Draws every 1 second
+        
+ 
+<span class="nc" id="L99">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L102">        PApplet.main(&quot;WizardTD.App&quot;);</span>
+<span class="nc" id="L103">    }</span>
+
+    /**
+     * Source: https://stackoverflow.com/questions/37758061/rotate-a-buffered-image-in-java
+     * @param pimg The image to be rotated
+     * @param angle between 0 and 360 degrees
+     * @return the new rotated image
+     */
+    public PImage rotateImageByDegrees(PImage pimg, double angle) {
+<span class="nc" id="L112">        BufferedImage img = (BufferedImage) pimg.getNative();</span>
+<span class="nc" id="L113">        double rads = Math.toRadians(angle);</span>
+<span class="nc" id="L114">        double sin = Math.abs(Math.sin(rads)), cos = Math.abs(Math.cos(rads));</span>
+<span class="nc" id="L115">        int w = img.getWidth();</span>
+<span class="nc" id="L116">        int h = img.getHeight();</span>
+<span class="nc" id="L117">        int newWidth = (int) Math.floor(w * cos + h * sin);</span>
+<span class="nc" id="L118">        int newHeight = (int) Math.floor(h * cos + w * sin);</span>
+
+<span class="nc" id="L120">        PImage result = this.createImage(newWidth, newHeight, RGB);</span>
+        //BufferedImage rotated = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
+<span class="nc" id="L122">        BufferedImage rotated = (BufferedImage) result.getNative();</span>
+<span class="nc" id="L123">        Graphics2D g2d = rotated.createGraphics();</span>
+<span class="nc" id="L124">        AffineTransform at = new AffineTransform();</span>
+<span class="nc" id="L125">        at.translate((newWidth - w) / 2, (newHeight - h) / 2);</span>
+
+<span class="nc" id="L127">        int x = w / 2;</span>
+<span class="nc" id="L128">        int y = h / 2;</span>
+
+<span class="nc" id="L130">        at.rotate(rads, x, y);</span>
+<span class="nc" id="L131">        g2d.setTransform(at);</span>
+<span class="nc" id="L132">        g2d.drawImage(img, 0, 0, null);</span>
+<span class="nc" id="L133">        g2d.dispose();</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">        for (int i = 0; i &lt; newWidth; i++) {</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">            for (int j = 0; j &lt; newHeight; j++) {</span>
+<span class="nc" id="L136">                result.set(i, j, rotated.getRGB(i, j));</span>
+            }
+        }
+
+<span class="nc" id="L140">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>
