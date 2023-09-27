@@ -91,6 +91,7 @@ public class Monster {
         this.healthBar.setHealth(this.hp);
     }
 
+    
     public void move() {
         int pixelsMoved = 0;
         double curSpeed = app.FFkeyOn ? this.speed * 2 : this.speed;
