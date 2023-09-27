@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class GameObject {
     protected int x;
     protected int y;
-    public String objName = null;
+    public char objName;
 
     private PImage sprite;
 
@@ -31,7 +31,7 @@ public class GameObject {
         this.y = y;
     }
 
-    public void setName(String name) {
+    public void setName(char name) {
         this.objName = name;
     }
 
@@ -47,6 +47,10 @@ public class GameObject {
         // The image() method is used to draw PImages onto the screen.
         // The first argument is the image, the second and third arguments are coordinates
         app.image(this.sprite, this.x, this.y);
+    }
+
+    public char getName() {
+        return this.objName;
     }
 
     public int getX() {

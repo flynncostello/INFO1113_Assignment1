@@ -15,9 +15,6 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import main.java.WizardTD.GameObject;
-import main.java.WizardTD.StaticText;
-import main.java.WizardTD.MovingObject;
 import processing.core.*;
 
 public abstract class ChangingBox {

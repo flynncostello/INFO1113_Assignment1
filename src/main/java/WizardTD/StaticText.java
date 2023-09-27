@@ -46,10 +46,13 @@ public class StaticText {
         this.textFont = textFont; 
     }
 
-    public void draw(PApplet app) {
+    public void draw(PApplet app, JSONArray colour) {
+        int r = colour.getInt(0);
+        int g = colour.getInt(1);
+        int b = colour.getInt(2);
         PFont curTextFont = app.createFont(textFont, fontSize);
         app.textFont(curTextFont);
-        app.fill(0);
+        app.fill(r, g, b);
         app.text(text, x, y);
     }
 }

@@ -2,44 +2,52 @@
   "layout": "level3.txt",
   "waves": [
     {
-      "duration": 2,
-      "pre_wave_pause": 2,
-      "monsters": [
-        {
-          "type": "gremlin",
-          "hp": 100,
-          "speed": 1,
-          "armour": 0.5,
-          "mana_gained_on_kill": 10,
-          "quantity": 10
-        }
-      ]
-    },
-    {
-      "duration": 2,
-      "pre_wave_pause": 2,
-      "monsters": [
-        {
-          "type": "gremlin",
-          "hp": 50,
-          "speed": 2.5,
-          "armour": 0.7,
-          "mana_gained_on_kill": 20,
-          "quantity": 15
-        }
-      ]
-    },
-    {
-      "duration": 2,
+      "duration": 5,
       "pre_wave_pause": 2,
       "monsters": [
         {
           "type": "gremlin",
           "hp": 150,
-          "speed": 1.0,
+          "speed": 4.25,
+          "armour": 1,
+          "mana_gained_on_kill": 100,
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "duration": 20,
+      "pre_wave_pause": 5,
+      "monsters": [
+        {
+          "type": "gremlin",
+          "hp": 150,
+          "speed": 1.65,
+          "armour": 0.5,
+          "mana_gained_on_kill": 200,
+          "quantity": 20
+        },
+        {
+          "type": "gremlin",
+          "hp": 120,
+          "speed": 1,
           "armour": 0.7,
-          "mana_gained_on_kill": 70,
-          "quantity": 25
+          "mana_gained_on_kill": 100,
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "duration": 30,
+      "pre_wave_pause": 2,
+      "monsters": [
+        {
+          "type": "gremlin",
+          "hp": 200,
+          "speed": 1,
+          "armour": 0.7,
+          "mana_gained_on_kill": 300,
+          "quantity": 30
         }
       ]
     }
@@ -47,8 +55,8 @@
   "initial_tower_range": 96,
   "initial_tower_firing_speed": 1.5,
   "initial_tower_damage": 40,
-  "initial_mana": 200,
-  "initial_mana_cap": 1000,
+  "initial_mana": 10000,
+  "initial_mana_cap": 100000,
   "initial_mana_gained_per_second": 2,
   "tower_cost": 100,
   "mana_pool_spell_initial_cost": 100,
